@@ -179,18 +179,18 @@ def build_dataset(args):
                 batch_size = args.batch_size,
                 shuffle=True
             )
-            test_loader = DataLoader(
-                dataset = dset.CIFAR10(
-                    root = './data/cifar10/', train = False, download = True,
-                    transform = transforms.Compose([
-                        transforms.Resize(32),
-                        transforms.ToTensor(),
-                        transforms.Normalize((0.5,), (0.5,))
-                    ])
-                ),
-                batch_size = args.batch_size,
-                shuffle = False
-            )
+        test_loader = DataLoader(
+            dataset = dset.CIFAR10(
+                root = './data/cifar10/', train = False, download = True,
+                transform = transforms.Compose([
+                    transforms.Resize(32),
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.5,), (0.5,))
+                ])
+            ),
+            batch_size = args.batch_size,
+            shuffle = False
+        )
     elif args.dataset == 'CIFAR100':
         if args.lamda == 1.0:
             train_loader =  DataLoader(
@@ -221,18 +221,18 @@ def build_dataset(args):
                 batch_size = args.batch_size,
                 shuffle=True
             )
-            test_loader = DataLoader(
-                dataset = dset.CIFAR100(
-                    root = './data/cifar100/', train = False, download = True,
-                    transform = transforms.Compose([
-                        transforms.Resize(32),
-                        transforms.ToTensor(),
-                        transforms.Normalize((0.5,), (0.5,))
-                    ])
-                ),
-                batch_size = args.batch_size,
-                shuffle = False
-            )
+        test_loader = DataLoader(
+            dataset = dset.CIFAR100(
+                root = './data/cifar100/', train = False, download = True,
+                transform = transforms.Compose([
+                    transforms.Resize(32),
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.5,), (0.5,))
+                ])
+            ),
+            batch_size = args.batch_size,
+            shuffle = False
+        )
     else:
         raise NotImplementedError
     
